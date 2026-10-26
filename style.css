@@ -14,7 +14,7 @@ body {
 /* ------------------------------------- */
 .topbar {
     height: 50px;
-    background: linear-gradient( 90deg, #4fc5b3, #5f8ff8);
+    background: linear-gradient(90deg, #4fc5b3, #5f8ff8);
     display: flex;
     align-items: center;
     padding: 0 22px;
@@ -75,6 +75,35 @@ body {
     position: absolute;
 }
 
+.admin-dropdown .badge {
+    background-color: #0dcaf0;
+    color: #212529;
+}
+
+/* Desain Khusus Halaman Login */
+.login-body {
+    background-color: #f4f7f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+}
+
+.login-card h3 {
+    font-weight: bold;
+    color: #333;
+}
+
 /* ------------------------------------- */
 /* LAYOUT & SIDEBAR                      */
 /* ------------------------------------- */
@@ -86,12 +115,10 @@ body {
 .sidebar {
     width: 200px;
     flex-shrink: 0;
-    background: linear-gradient(
-        180deg,
-        #f8fbff 0%,
-        #4fc5b3 70%,
-        #afc9ee 100%
-    );
+    background: linear-gradient(180deg,
+            #f8fbff 0%,
+            #4fc5b3 70%,
+            #afc9ee 100%);
     border-right: 2px solid #d2e6df;
     padding: 21px 11px;
 }
@@ -196,10 +223,12 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+
 .summary-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 9px 20px rgba(37, 99, 235, 0.18);
 }
+
 .sales-card {
     background: linear-gradient(120deg, #2563eb, #38bdf8);
     color: #ffffff;
@@ -238,6 +267,7 @@ body {
     max-width: none;
     box-sizing: border-box;
 }
+
 .product-card:hover {
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
 }
@@ -814,6 +844,7 @@ body {
 }
 
 @media (max-width: 767px) {
+
     /* Navbar HP */
     .topbar {
         height: auto;

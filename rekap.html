@@ -17,58 +17,110 @@
 
 <body>
 
-    <!-- HEADER / NAVBAR -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand navbar-dark topbar">
+
         <a href="dashboard.html" class="brand">
             <i class="fa-solid fa-store"></i>
             Aplikasi Penjualan Sederhana Warung/Kantin
         </a>
-        <ul class="navbar-nav admin-dropdown ms-auto">
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
-                    <i class="fa-solid fa-circle-user fs-4 me-2"></i>
-                    <div class="text-start d-none d-sm-block">
-                        <span id="userName" class="d-block fw-bold" style="font-size: 14px; line-height: 1;">User</span>
-                        <span id="userRole" class="badge bg-warning text-dark mt-1"
-                            style="font-size: 10px;">Peran</span>
-                    </div>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li>
-                        <a class="dropdown-item text-danger fw-bold" href="login.html">
-                            <i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Logout
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+
+        <!-- PENCARIAN -->
+        <form class="search-form" id="searchForm">
+            <input type="search" class="form-control" id="searchInput"
+                placeholder="Cari transaksi, produk, atau lainnya" aria-label="Cari produk">
+
+            <button type="submit" class="btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+
+        <!-- ADMIN -->
+        <div class="admin-dropdown d-flex align-items-center gap-3">
+
+            <!-- Info Profil -->
+            <div class="d-flex align-items-center text-white">
+                <i class="fa-solid fa-circle-user fs-4 me-2"></i>
+                <div class="text-start d-none d-sm-block">
+                    <span class="d-block fw-bold" style="font-size: 14px; line-height: 1;">Pemilik</span>
+                    <span class="badge bg-warning text-dark mt-1" style="font-size: 10px;">Status</span>
+                </div>
+            </div>
+
+            <!-- Tombol Logout -->
+            <a href="login.html" class="btn btn-danger btn-sm fw-bold">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+            </a>
+
+        </div>
+
     </nav>
 
     <div class="page-layout">
-        <!-- SIDEBAR -->
+        <!-- SIDEBAR KIRI -->
         <aside class="sidebar">
             <nav class="nav flex-column" id="sidebarMenu">
-                <a class="nav-link" href="dashboard.html"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
 
-                <!-- MENU REKAP KHUSUS PEMILIK (d-none berarti disembunyikan awalnya) -->
-                <a class="nav-link active menu-pemilik d-none" href="rekap.html">
-                    <i class="fa-solid fa-chart-pie"></i><span>Rekap Keuangan</span>
+                <a class="nav-link d-flex justify-content-between align-items-center" href="dashboard.html">
+                    <div>
+                        <i class="fa-solid fa-house"></i><span>Dashboard</span>
+                    </div>
+                    <span class="badge bg-secondary ms-2" style="font-size: 0.65em;">Kasir/Admin</span>
                 </a>
 
-                <a class="nav-link" href="kategori.html"><i class="fa-solid fa-tags"></i><span>Kategori</span></a>
-                <a class="nav-link" href="produk.html"><i class="fa-solid fa-layer-group"></i><span>Produk</span></a>
-                <a class="nav-link" href="kasir.html"><i
-                        class="fa-solid fa-bag-shopping"></i><span>Kasir/Penjualan</span></a>
-                <a class="nav-link" href="riwayat.html"><i class="fa-regular fa-clock"></i><span>Riwayat</span></a>
-                <a class="nav-link" href="laporan.html"><i class="fa-solid fa-book"></i><span>Laporan</span></a>
-                <a class="nav-link" href="login.html"><i
-                        class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span></a>
+                <a class="nav-link d-flex justify-content-between align-items-center" href="kategori.html">
+                    <div>
+                        <i class="fa-solid fa-tags"></i><span>Kategori</span>
+                    </div>
+                    <span class="badge bg-secondary ms-2" style="font-size: 0.65em;">Kasir/Admin</span>
+                </a>
+
+                <a class="nav-link d-flex justify-content-between align-items-center" href="produk.html">
+                    <div>
+                        <i class="fa-solid fa-layer-group"></i><span>Produk</span>
+                    </div>
+                    <span class="badge bg-secondary ms-2" style="font-size: 0.65em;">Kasir/Admin</span>
+                </a>
+
+                <a class="nav-link d-flex justify-content-between align-items-center" href="kasir.html">
+                    <div>
+                        <i class="fa-solid fa-bag-shopping"></i><span>Kasir/Penjualan</span>
+                    </div>
+                    <span class="badge bg-secondary ms-2" style="font-size: 0.65em;">Kasir/Admin</span>
+                </a>
+
+                <a class="nav-link d-flex justify-content-between align-items-center" href="riwayat.html">
+                    <div>
+                        <i class="fa-regular fa-clock"></i><span>Riwayat</span>
+                    </div>
+                    <span class="badge bg-secondary ms-2" style="font-size: 0.65em;">Kasir/Admin</span>
+                </a>
+
+                <a class="nav-link d-flex justify-content-between align-items-center" href="laporan.html">
+                    <div>
+                        <i class="fa-solid fa-book"></i><span>Laporan</span>
+                    </div>
+                    <span class="badge bg-secondary ms-2" style="font-size: 0.65em;">Kasir/Admin</span>
+                </a>
+
+                <!-- MENU REKAP KHUSUS PEMILIK -->
+                <a class="nav-link active menu-pemilik d-flex justify-content-between align-items-center"
+                    href="rekap.html">
+                    <div>
+                        <i class="fa-solid fa-chart-pie"></i><span>Rekap Penjualan</span>
+                    </div>
+                    <span class="badge bg-primary ms-2" style="font-size: 0.65em;">Pemilik</span>
+                </a>
+
+                <a class="nav-link mt-4" href="login.html">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span>
+                </a>
             </nav>
         </aside>
 
         <!-- KONTEN REKAP -->
         <main class="main-content">
-            <h1 class="page-title text-warning"><i class="fa-solid fa-crown me-2"></i>Rekap Keuangan (Khusus Pemilik)
+            <h1 class="page-title text-warning"><i class="fa-solid fa-crown me-2"></i>Rekap Penjualan (Pemilik)
             </h1>
             <p class="breadcrumb-text">Menu &gt; Rekap Keuangan</p>
 

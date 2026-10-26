@@ -16,40 +16,43 @@
 
 <body>
 
-    <!-- HEADER / NAVBAR -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand navbar-dark topbar">
+
         <a href="dashboard.html" class="brand">
             <i class="fa-solid fa-store"></i>
             Aplikasi Penjualan Sederhana Warung/Kantin
         </a>
 
         <!-- PENCARIAN -->
-        <form class="search-form" id="globalSearch">
-            <input type="search" class="form-control" id="globalSearchInput"
-                placeholder="Cari transaksi, produk, atau lainnya" aria-label="Cari">
+        <form class="search-form" id="searchForm">
+            <input type="search" class="form-control" id="searchInput"
+                placeholder="Cari transaksi, produk, atau lainnya" aria-label="Cari produk">
+
             <button type="submit" class="btn">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </form>
 
-        <!-- ADMIN (Profil & Tombol Logout Langsung) -->
-        <div class="admin-dropdown d-flex align-items-center">
-            
+        <!-- ADMIN -->
+        <div class="admin-dropdown d-flex align-items-center gap-3">
+
             <!-- Info Profil -->
             <div class="d-flex align-items-center text-white">
                 <i class="fa-solid fa-circle-user fs-4 me-2"></i>
                 <div class="text-start d-none d-sm-block">
                     <span class="d-block fw-bold" style="font-size: 14px; line-height: 1;">Kasir/Admin</span>
-                    <span class="badge bg-warning text-dark mt-1" style="font-size: 10px;">Status</span>
+                    <span class="badge bg-info text-dark mt-1" style="font-size: 10px;">Status</span>
                 </div>
             </div>
 
-            <!-- Tombol Logout (Statis, 100% Bebas JS) -->
-            <a href="login.html" class="btn btn-danger btn-sm fw-bold ms-4">
+            <!-- Tombol Logout -->
+            <a href="login.html" class="btn btn-danger btn-sm fw-bold">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
             </a>
-            
+
         </div>
+
     </nav>
 
     <!-- LAYOUT UTAMA -->
@@ -58,7 +61,7 @@
         <!-- SIDEBAR KIRI -->
         <aside class="sidebar">
             <nav class="nav flex-column" id="sidebarMenu">
-                
+
                 <a class="nav-link d-flex justify-content-between align-items-center" href="dashboard.html">
                     <div>
                         <i class="fa-solid fa-house"></i><span>Dashboard</span>
@@ -72,7 +75,7 @@
                     </div>
                     <span class="badge bg-secondary ms-2" style="font-size: 0.65em;">Kasir/Admin</span>
                 </a>
-                
+
                 <!-- PRODUK (ACTIVE) -->
                 <a class="nav-link active d-flex justify-content-between align-items-center" href="produk.html">
                     <div>
@@ -80,21 +83,21 @@
                     </div>
                     <span class="badge bg-secondary ms-2" style="font-size: 0.65em;">Kasir/Admin</span>
                 </a>
-                
+
                 <a class="nav-link d-flex justify-content-between align-items-center" href="kasir.html">
                     <div>
                         <i class="fa-solid fa-bag-shopping"></i><span>Kasir/Penjualan</span>
                     </div>
                     <span class="badge bg-secondary ms-2" style="font-size: 0.65em;">Kasir/Admin</span>
                 </a>
-                
+
                 <a class="nav-link d-flex justify-content-between align-items-center" href="riwayat.html">
                     <div>
                         <i class="fa-regular fa-clock"></i><span>Riwayat</span>
                     </div>
                     <span class="badge bg-secondary ms-2" style="font-size: 0.65em;">Kasir/Admin</span>
                 </a>
-                
+
                 <a class="nav-link d-flex justify-content-between align-items-center" href="laporan.html">
                     <div>
                         <i class="fa-solid fa-book"></i><span>Laporan</span>
@@ -124,7 +127,7 @@
             <!-- FORM TAMBAH PRODUK (Statis, Langsung Tampil) -->
             <section class="product-panel mb-4" style="min-height: auto;">
                 <div class="panel-heading mb-3"><i></i> Tambah Produk Baru</div>
-                
+
                 <form action="produk.html" method="GET"> <!-- Dummy action -->
                     <div class="row g-3">
                         <div class="col-md-3">
@@ -149,12 +152,14 @@
                         </div>
                         <div class="col-md-2">
                             <label class="form-label fw-bold">Stok</label>
-                            <input type="number" class="form-control" placeholder="Jml">
+                            <input type="number" class="form-control" placeholder="Jumlah">
                         </div>
                     </div>
                     <div class="mt-3 text-end">
-                        <button type="reset" class="btn btn-secondary"><i class="fa-solid fa-rotate-left"></i> Reset</button>
-                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Simpan Data</button>
+                        <button type="reset" class="btn btn-secondary"><i class="fa-solid fa-rotate-left"></i>
+                            Reset</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Simpan
+                            Data</button>
                     </div>
                 </form>
             </section>
@@ -166,7 +171,7 @@
                 <div class="toolbar">
                     <input type="search" id="productSearch" class="form-control" placeholder="🔍 Cari nama produk...">
                     <select id="categoryFilter" class="form-select">
-                        <option value="">Semua Kategori</option>
+                        <option value="">Kategori</option>
                         <option value="Makanan">Makanan</option>
                         <option value="Minuman">Minuman</option>
                     </select>
@@ -179,6 +184,8 @@
                                 <th>No</th>
                                 <th>Nama Produk</th>
                                 <th>Kategori</th>
+                                <!-- Kolom Kode ditambahkan di sini -->
+                                <th>Kode</th>
                                 <th>Harga</th>
                                 <th>Stok</th>
                                 <th class="text-center">Aksi</th>
@@ -190,11 +197,15 @@
                                 <td>1</td>
                                 <td>Mie Goreng Spesial</td>
                                 <td><span class="badge bg-warning text-dark">Makanan</span></td>
+                                <!-- Data Kode 1 ditambahkan di sini -->
+                                <td>MKN-01</td>
                                 <td>Rp 15.000</td>
                                 <td>24</td>
                                 <td class="text-center">
-                                    <button class="action-btn edit-btn" title="Fitur Edit dinonaktifkan"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="action-btn delete-btn" title="Fitur Hapus dinonaktifkan"><i class="fa-solid fa-trash"></i></button>
+                                    <button class="action-btn edit-btn" title="Fitur Edit dinonaktifkan"><i
+                                            class="fa-solid fa-pen"></i></button>
+                                    <button class="action-btn delete-btn" title="Fitur Hapus dinonaktifkan"><i
+                                            class="fa-solid fa-trash"></i></button>
                                 </td>
                             </tr>
                             <!-- Data Dummy 2 -->
@@ -202,47 +213,15 @@
                                 <td>2</td>
                                 <td>Es Teh Manis</td>
                                 <td><span class="badge bg-info text-dark">Minuman</span></td>
+                                <!-- Data Kode 2 ditambahkan di sini -->
+                                <td>MNM-01</td>
                                 <td>Rp 5.000</td>
                                 <td>50</td>
                                 <td class="text-center">
-                                    <button class="action-btn edit-btn" title="Fitur Edit dinonaktifkan"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="action-btn delete-btn" title="Fitur Hapus dinonaktifkan"><i class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <!-- Data Dummy 3 -->
-                            <tr>
-                                <td>3</td>
-                                <td>Nasi Goreng Biasa</td>
-                                <td><span class="badge bg-warning text-dark">Makanan</span></td>
-                                <td>Rp 13.000</td>
-                                <td>15</td>
-                                <td class="text-center">
-                                    <button class="action-btn edit-btn" title="Fitur Edit dinonaktifkan"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="action-btn delete-btn" title="Fitur Hapus dinonaktifkan"><i class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <!-- Data Dummy 4 -->
-                            <tr>
-                                <td>4</td>
-                                <td>Kopi Susu Es</td>
-                                <td><span class="badge bg-info text-dark">Minuman</span></td>
-                                <td>Rp 8.000</td>
-                                <td>30</td>
-                                <td class="text-center">
-                                    <button class="action-btn edit-btn" title="Fitur Edit dinonaktifkan"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="action-btn delete-btn" title="Fitur Hapus dinonaktifkan"><i class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <!-- Data Dummy 5 -->
-                            <tr>
-                                <td>5</td>
-                                <td>Kerupuk Udang</td>
-                                <td><span class="badge bg-warning text-dark">Makanan</span></td>
-                                <td>Rp 2.000</td>
-                                <td>100</td>
-                                <td class="text-center">
-                                    <button class="action-btn edit-btn" title="Fitur Edit dinonaktifkan"><i class="fa-solid fa-pen"></i></button>
-                                    <button class="action-btn delete-btn" title="Fitur Hapus dinonaktifkan"><i class="fa-solid fa-trash"></i></button>
+                                    <button class="action-btn edit-btn" title="Fitur Edit dinonaktifkan"><i
+                                            class="fa-solid fa-pen"></i></button>
+                                    <button class="action-btn delete-btn" title="Fitur Hapus dinonaktifkan"><i
+                                            class="fa-solid fa-trash"></i></button>
                                 </td>
                             </tr>
                         </tbody>
